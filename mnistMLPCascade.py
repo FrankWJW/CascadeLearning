@@ -9,13 +9,13 @@ from keras.optimizers import SGD
 from keras.utils import np_utils, generic_utils
 from keras.regularizers import l2
 from keras.preprocessing.image import ImageDataGenerator
-import cPickle
+import _pickle
 import numpy as np
 from keras.models import model_from_json
-from keras.utils.visualize_util import plot
+from keras.utils.vis_utils import plot_model
 from keras.models import Model
 from keras.datasets import mnist
-from usefulMethods import LearningRateC
+from utils import LearningRateC
 
 weightDecay = 10e-4
 lr = 0.01

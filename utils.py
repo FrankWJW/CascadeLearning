@@ -1,7 +1,14 @@
 """
     USEFUL METHODS USED IN THIS REPOSITOTY
 """
-from keras.preprocessing.image import DirectoryIterator, Iterator, transform_matrix_offset_center, flip_axis, apply_transform
+#from keras.preprocessing.image import DirectoryIterator, Iterator, ImageDataGenerator
+
+#apply_transform has been removed from image module and has been refactored as one of the methods of ImageDataGenerator class
+#img_gen = ImageDataGenerator()
+#img_gen.apply_transform(args)
+
+#from tensorlayer.prepro import transform_matrix_offset_center, flip_axis
+
 import numpy as np
 import re
 from scipy import linalg
@@ -20,13 +27,15 @@ from keras.regularizers import l2
 from keras.utils import generic_utils
 from keras.models import Model, load_model
 import tensorflow as tf
-import cPickle
+import pickle as cPickle
 from PIL import Image as im
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
 
+
+print("import ok!")
 def get_gradient_norm_func(model):
     trainable_weights = list()
     conv_indexes = list()
@@ -190,7 +199,8 @@ class LearningRateC(Callback):
             self.model.stop_training = True
             print('MODEL STOPPED DUE TO OVERFITTING')
 
-class NumpyArrayIterator(Iterator):
+#class NumpyArrayIterator(Iterator):
+class NumpyArrayIterator():
     """Modified version of keras NumpyArrayIterator to allow
        a model to predict. Used on the cascade learning to 
        enhance the procedure. 
