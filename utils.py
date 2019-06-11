@@ -34,8 +34,6 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 os.environ['TF_CPP_MIN_LOG_LEVEL']='3'
 
-
-print("import ok!")
 def get_gradient_norm_func(model):
     trainable_weights = list()
     conv_indexes = list()
@@ -199,8 +197,8 @@ class LearningRateC(Callback):
             self.model.stop_training = True
             print('MODEL STOPPED DUE TO OVERFITTING')
 
-#class NumpyArrayIterator(Iterator):
 class NumpyArrayIterator():
+#class NumpyArrayIterator(Iterator):
     """Modified version of keras NumpyArrayIterator to allow
        a model to predict. Used on the cascade learning to 
        enhance the procedure. 
@@ -224,7 +222,6 @@ class NumpyArrayIterator():
         self.save_format = save_format
         self.modelToPredict = modelToPredict
         #super(NumpyArrayIterator, self).__init__(X.shape[0], batch_size, shuffle, seed)
-        super(NumpyArrayIterator, self).__init__()
 
     def next(self):
         # for python 2.x.
@@ -319,6 +316,7 @@ class ImageDataGeneratorForCascading(object):
 
     def flow(self, X, y=None, batch_size=32, shuffle=True, seed=None,
              save_to_dir=None, save_prefix='', save_format='jpeg'):
+        
         iterator = NumpyArrayIterator(  X, y, self,
                                             batch_size=batch_size, shuffle=shuffle, seed=seed,
                                             dim_ordering=self.dim_ordering,
