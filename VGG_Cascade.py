@@ -9,13 +9,16 @@ from keras.layers.convolutional import Convolution2D, MaxPooling2D, ZeroPadding2
 from keras.optimizers import SGD
 from keras.utils import np_utils, generic_utils
 from keras.regularizers import l2
-import cPickle
+import pickle as cPickle
 import numpy as np
 import time
 # from keras.utils.visualize_util import plot
 from keras.models import model_from_json
 import os
-from usefulMethods import ImageDataGeneratorForCascading, GetConfusionMatrix,LearningRateC, CascadeTraining
+# from usefulMethods import ImageDataGeneratorForCascading, GetConfusionMatrix,LearningRateC, CascadeTraining
+from utils import ImageDataGeneratorForCascading, GetConfusionMatrix,LearningRateC, CascadeTraining
+print("=======================all library import successful !===========================")
+
 
 #GET THE VGG MODEL USED IN THIS TEST
 def getModel1():
@@ -133,8 +136,8 @@ doCascade = False
 # stringOfHistory = './VGG_Results/VGGCascade_Opt_128' #IRIDIS
 # stringOfHistory = './VGG_Results/VGGCascade_Opt_256' #IRIDIS
 # stringOfHistory = './VGG_Results/VGGCascade_Opt_64' #IRIDIS
-stringOfHistory = './VGG_Results/VGGCascade_Opt_BiggerNet_NoDropout' #IRIDIS
-# stringOfHistory = None
+## stringOfHistory = './VGG_Results/VGGCascade_Opt_BiggerNet_NoDropout' #IRIDIS
+stringOfHistory = None
 
 print(stringOfHistory)
 (X_train, y_train), (X_test, y_test) = cifar10.load_data() #GET DATA

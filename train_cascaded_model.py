@@ -12,14 +12,14 @@ from keras.utils import np_utils, generic_utils
 from keras.layers.merge import Concatenate
 from keras import initializers
 from keras.regularizers import l2
-import cPickle
+import pickle as cPickle
 import numpy as np
 import time
 import shutil
 # from keras.utils.visualize_util import plot
 from keras.models import Model,model_from_json,load_model
 import os
-from usefulMethods import ImageDataGeneratorForCascading, GetConfusionMatrix,LearningRateC, CascadeTraining_2_Multi_GPU, save_full_model
+from utils import ImageDataGeneratorForCascading, GetConfusionMatrix,LearningRateC, CascadeTraining_2_Multi_GPU, save_full_model
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
