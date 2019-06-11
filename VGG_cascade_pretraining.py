@@ -89,7 +89,7 @@ def get_vgg_style_net(input_shape=(32,32,3),blocks=[3,3],outNeurons=512,init_fil
     x = Dropout(0.5)(x)
   x = Dense(outNeurons,kernel_regularizer=l2(weightDecay),activation='relu')(x)
   x = Dropout(0.5)(x)
-  x = Dense(outNeurons/2,kernel_regularizer=l2(weightDecay),activation='relu')(x)
+  x = Dense(int(outNeurons/2),kernel_regularizer=l2(weightDecay),activation='relu')(x)
   out = Dense(nb_classes,kernel_regularizer=l2(weightDecay),activation='softmax')(x)
 
   return Model(inputs=inputs,outputs=out)

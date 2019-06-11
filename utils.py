@@ -223,7 +223,8 @@ class NumpyArrayIterator():
         self.save_prefix = save_prefix
         self.save_format = save_format
         self.modelToPredict = modelToPredict
-        super(NumpyArrayIterator, self).__init__(X.shape[0], batch_size, shuffle, seed)
+        #super(NumpyArrayIterator, self).__init__(X.shape[0], batch_size, shuffle, seed)
+        super(NumpyArrayIterator, self).__init__()
 
     def next(self):
         # for python 2.x.
@@ -602,7 +603,7 @@ def CascadeTraining(model,X_train,Y_train,X_test,Y_test,stringOfHistory=None,dat
                     nextModelToTrain.add(Dense(outNeurons,kernel_regularizer=l2(weightDecay)))
                     nextModelToTrain.add(Activation('relu'))
                     nextModelToTrain.add(Dropout(0.5))
-                    nextModelToTrain.add(Dense(outNeurons/2,kernel_regularizer=l2(weightDecay)))
+                    nextModelToTrain.add(Dense(int(outNeurons/2),kernel_regularizer=l2(weightDecay)))
                     nextModelToTrain.add(Activation('relu'))
                     # nextModelToTrain.add(Dropout(0.5))
                     nextModelToTrain.add(Dense(nb_classes,kernel_regularizer=l2(weightDecay)))
